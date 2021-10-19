@@ -102,7 +102,7 @@ describe('controller', function () {
 			// TODO: write test
 			setUpModel([{title: 'my completed todo', completed: true}]);
 
-			subject.setView('#/active');
+			subject.setView('#/completed');
 
 			expect(view.render).toHaveBeenCalledWith('showEntries', [{title: 'my completed todo', completed: true}]);
 		});

@@ -91,11 +91,26 @@
 
 		// Generate an ID
 	    var newId = ""; 
-	    var charset = "0123456789";
+		var charset = "0123456789";
 
-        for (var i = 0; i < 6; i++) {
-     		newId += charset.charAt(Math.floor(Math.random() * charset.length));
+		GenerateUniqueId = function(){
+			newId = ""; 
+			for (var i = 0; i < 6; i++) {
+				newId += charset.charAt(Math.floor(Math.random() * charset.length));
+			}
+			// Check unique Id
+			for (var i = 0; i < todos.length; i++){
+				if(newId === todos[i].id){
+					GenerateUniqueId()
+				}
+			}
 		}
+		
+		GenerateUniqueId()
+
+
+
+
 
 		// If an ID was actually given, find the item and update each property
 		if (id) {
